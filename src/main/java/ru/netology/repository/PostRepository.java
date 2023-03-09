@@ -1,46 +1,35 @@
 package ru.netology.repository;
 
 import ru.netology.model.Post;
-
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PostRepository {
 
-    private final Set<Post> posts;
+    private final Map<Long, Post> posts;
 
     public PostRepository() {
-        this.posts = new HashSet<>();
+        this.posts = new ConcurrentHashMap<>();
     }
 
     public List<Post> all() {
-        return Collections.unmodifiableList(new ArrayList<>(posts));
+        return Collections.unmodifiableList(new ArrayList<>(posts.values()));
     }
 
     public Optional<Post> getById(long id) {
-        for (Post post : posts) {
-            if (post.getId() == id) {
-                return Optional.of(post);
-            }
-        }
-        return Optional.empty();
+        Post post = posts.get(id);
+        return Optional.ofNullable(post);
     }
 
     public Post save(Post post) {
-        Objects.requireNonNull(post, "Post cannot be null");
-        Optional<Post> postToUpdate = getById(post.getId());
-        postToUpdate.ifPresent(this::delete);
-        posts.add(post);
+        String POST_CAN_NOT_BE_NULL = "Post cannot be null";
+        Objects.requireNonNull(post, POST_CAN_NOT_BE_NULL);
+        posts.put(post.getId(), post);
         return post;
     }
 
-    public void delete(Post post) {
-        Objects.requireNonNull(post, "Post cannot be null");
-        posts.remove(post);
-    }
-
     public void removeById(long id) {
-        Optional<Post> postToRemove = getById(id);
-        postToRemove.ifPresent(this::delete);
+        posts.remove(id);
     }
 
 }

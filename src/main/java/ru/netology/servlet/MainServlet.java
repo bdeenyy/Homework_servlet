@@ -10,14 +10,20 @@ import ru.netology.service.PostService;
 
 public class MainServlet extends HttpServlet {
 
-
     private static final String API_PATH = "/api/posts";
     private static final String API_ID_PATH = "/api/posts/";
+    private static final String GET = "GET";
+    private static final String POST = "POST";
+    private static final String DELETE = "DELETE";
 
     private PostController controller;
 
     @Override
     public void init() {
+        initializeController();
+    }
+
+    private void initializeController() {
         final var repository = new PostRepository();
         final var service = new PostService(repository);
         controller = new PostController(service);
@@ -29,28 +35,23 @@ public class MainServlet extends HttpServlet {
             final var path = req.getRequestURI();
             final var method = req.getMethod();
             switch (method) {
-                case "GET":
+                case GET:
                     if (path.equals(API_PATH)) {
                         controller.all(resp);
-                        break;
-                    }
-                    if (path.startsWith(API_ID_PATH)) {
+                    } else if (path.startsWith(API_ID_PATH)) {
                         final var id = Long.parseLong(path.substring(API_ID_PATH.length()));
                         controller.getById(id, resp);
-                        break;
                     }
                     break;
-                case "POST":
+                case POST:
                     if (path.equals(API_PATH)) {
                         controller.save(reader, resp);
-                        break;
                     }
                     break;
-                case "DELETE":
+                case DELETE:
                     if (path.matches(API_ID_PATH + "\\d+")) {
                         final var id = Long.parseLong(path.substring(API_ID_PATH.length()));
                         controller.removeById(id, resp);
-                        break;
                     }
                     break;
                 default:
