@@ -62,4 +62,5 @@ public class MainServlet extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
+    // java -jar target/dependency/webapp-runner.jar target/servlets-1.0-SNAPShOT.war
 }
