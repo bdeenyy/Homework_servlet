@@ -9,9 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a5040c3-6dc9-40e5-a84e-bbbb26d7e3bf" name="Changes" comment="add WebApp Runner">
+    <list default="true" id="1a5040c3-6dc9-40e5-a84e-bbbb26d7e3bf" name="Changes" comment="Add injection with Spring annotations">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/netology/config/JavaConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/controller/PostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/service/PostService.java" afterDir="false" />
@@ -32,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/di-annotation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -186,7 +186,7 @@
       <workItem from="1678617856328" duration="5000" />
       <workItem from="1678702371696" duration="3722000" />
       <workItem from="1678783631381" duration="819000" />
-      <workItem from="1678784464840" duration="4352000" />
+      <workItem from="1678784464840" duration="8847000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1678092175216</created>
@@ -209,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678350901319</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add injection with Spring annotations">
+      <created>1678789673985</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678789673985</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +280,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Task complete" />
     <MESSAGE value="Fixed bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs" />
+    <MESSAGE value="Add injection with Spring annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add injection with Spring annotations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
