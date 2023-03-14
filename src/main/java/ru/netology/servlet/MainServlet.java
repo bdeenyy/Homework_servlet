@@ -1,12 +1,14 @@
 package ru.netology.servlet;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.netology.config.JavaConfig;
 import ru.netology.controller.PostController;
 import ru.netology.repository.PostRepository;
 import ru.netology.service.PostService;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
 
@@ -20,14 +22,13 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init() {
-        initializeController();
+        final var context = new AnnotationConfigApplicationContext(JavaConfig.class);
+        final var repository = context.getBean(PostRepository.class);
+        final var service = context.getBean(PostService.class);
+        controller = context.getBean(PostController.class);
     }
 
-    private void initializeController() {
-        final var repository = new PostRepository();
-        final var service = new PostService(repository);
-        controller = new PostController(service);
-    }
+
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) {
@@ -63,4 +64,5 @@ public class MainServlet extends HttpServlet {
         }
     }
     // java -jar target/dependency/webapp-runner.jar target/servlets-1.0-SNAPShOT.war
+    // control+C
 }

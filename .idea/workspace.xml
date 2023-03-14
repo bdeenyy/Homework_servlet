@@ -9,9 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a5040c3-6dc9-40e5-a84e-bbbb26d7e3bf" name="Changes" comment="Fixed bugs">
+    <list default="true" id="1a5040c3-6dc9-40e5-a84e-bbbb26d7e3bf" name="Changes" comment="Add injection with Spring annotations">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/netology/config/JavaConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/service/PostService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/servlet/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/servlet/MainServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +22,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/di-annotation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,11 +90,15 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "keyPromoterConfiguration",
+    "spring.configuration.checksum": "43468e1058ee6e0d280a45d493ceb014",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="HTTP Request.All in post-requests">
+  <component name="RunManager" selected="Smart Tomcat.Tomcat: servlets">
     <configuration name="All in post-requests (1)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/post-requests.http">
       <method v="2" />
     </configuration>
@@ -100,18 +114,43 @@
     <configuration name="All in ws-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/ws-requests.http">
       <method v="2" />
     </configuration>
+    <configuration name="Tomcat: servlets" type="com.poratu.idea.plugins.tomcat">
+      <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
+      <predefined_log_file enabled="true" id="Tomcat Access Log" />
+      <predefined_log_file id="Tomcat Catalina Log" />
+      <predefined_log_file id="Tomcat Manager Log" />
+      <predefined_log_file id="Tomcat Host Manager Log" />
+      <option name="contextPath" value="/" />
+      <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="extraClassPath" value="" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.72" />
+          <option name="path" value="/Applications/Apache/apache-tomcat-9.0.72" />
+          <option name="version" value="9.0.72.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="HTTP Request.All in post-requests" />
       <item itemvalue="HTTP Request.All in post-requests (1)" />
       <item itemvalue="HTTP Request.All in request" />
       <item itemvalue="HTTP Request.All in requests-with-tests" />
       <item itemvalue="HTTP Request.All in ws-requests" />
+      <item itemvalue="Smart Tomcat.Tomcat: servlets" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.All in request" />
         <item itemvalue="HTTP Request.All in ws-requests" />
         <item itemvalue="HTTP Request.All in requests-with-tests" />
+        <item itemvalue="HTTP Request.All in request" />
         <item itemvalue="HTTP Request.All in post-requests" />
         <item itemvalue="HTTP Request.All in post-requests (1)" />
       </list>
@@ -146,6 +185,8 @@
       <workItem from="1678479480789" duration="323000" />
       <workItem from="1678617856328" duration="5000" />
       <workItem from="1678702371696" duration="3722000" />
+      <workItem from="1678783631381" duration="819000" />
+      <workItem from="1678784464840" duration="8847000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1678092175216</created>
@@ -168,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678350901319</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add injection with Spring annotations">
+      <created>1678789673985</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678789673985</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +225,23 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="e6f19daf-b511-4570-b12a-c6a6f9a73bd6">
           <value>
             <State>
@@ -215,7 +280,8 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Task complete" />
     <MESSAGE value="Fixed bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs" />
+    <MESSAGE value="Add injection with Spring annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add injection with Spring annotations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
